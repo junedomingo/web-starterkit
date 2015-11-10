@@ -24,7 +24,7 @@ $ npm install
 - `gulp re-build` Delete build files and compile it 
 
 
-### Sub-Tasks
+### Sub-Tasks (optional)
 - `gulp js` Compile js files
 - `gulp html` Compile jade files
 - `gulp css` Compile stylus files

@@ -1,0 +1,106 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900)
+
+@font-face
+    font-family 'Bavro'
+    src url('../fonts/Bavro-Regular.otf')
+    format('opentype')
+
+body
+    background #222
+    color #FFF
+    font-family 'Lato', sans-serif
+    padding 0px
+    margin 0px
+
+.skewed-bg
+    background linear-gradient(90deg, #fd746c 10%, #ff9068 90%)
+    padding 175px 0
+    transform skew(0deg, -10deg)
+    margin-top -200px
+    height 350px
+    
+    .content
+        transform skew(0deg, 10deg)
+        text-align center
+        padding-top 20px
+        margin auto
+
+        .logo
+            font-family 'Bavro'
+            padding 10px 0 0 10px
+            background #fff
+            width 90px
+            height 90px
+            color #fd746c
+            font-size 40px
+            font-weight bold
+            border-radius 50px
+            margin auto
+            margin-top 60px
+            box-shadow inset 8px -3px 0px 10px #9c5550
+            line-height 70px
+
+        .title
+            font-family 'Bavro'
+            font-weight normal
+            font-size 36px
+
+        .text
+            font-family 'Lato'
+            width 60%
+            margin 25px auto
+            color #fff
+            font-size 15px
+            
+            a
+                border-bottom 1px solid #fff
+                margin-right 3px
+                text-decoration none
+                color #fff
+            
+        .features
+            text-align left
+            margin auto
+            width 23%
+
+            ul
+                display block
+                padding 0px
+                margin 0px
+                
+            li
+                display block
+                list-style none
+                
+                span
+                    font-size 16px
+                    margin-left 10px
+                    position absolute
+                    line-height 40px
+                i
+                    font-size 40px
+                    line-height 0px
+
+
+.footer
+    padding-top 50px
+    
+    .github-icon
+        text-align center
+        color #666
+        margin auto
+        i
+            font-size 50px
+            
+        a
+            color #666
+
+    .credits
+        text-align center
+        color #666
+
+    .link 
+        color #fd746c
+        text-decoration none
+
+    

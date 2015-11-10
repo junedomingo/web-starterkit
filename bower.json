@@ -1,0 +1,25 @@
+{
+  "name": "web-starterkit",
+  "version": "1.0.0",
+  "authors": [
+    "June Domingo <june@cynder.io>"
+  ],
+  "description": "A Jade and Stylus starter project using Gulp for task automation.",
+  "main": "gulpfile.js",
+  "moduleType": [],
+  "keywords": [
+    "jade",
+    "stylus",
+    "gulp"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/CynderTech/web-starterkit.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

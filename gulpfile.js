@@ -28,9 +28,10 @@ var reportError = function(error){
 };
 
 gulp.task('html', function() {
-    gulp.src('app/**/*.jade')
+    gulp.src('app/**/!(_)*.jade')
         .pipe(plumber({ errorHandler: reportError }))
         .pipe(jade({ pretty: true }))
+        .pipe(rename( {dirname: "./"} ))
         .pipe(gulp.dest('public'))
         .pipe(connect.reload())
         .pipe(browserSync.reload({ stream: true }));

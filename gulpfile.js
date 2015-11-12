@@ -19,19 +19,19 @@ var uglify       = require('gulp-uglify');
 
 var reportError = function(error){
     notify.onError({
-        title: "Gulp Task Error",
-        message: "Check your console",
-        sound: "Sosumi"
+        title: 'Gulp Task Error',
+        message: 'Check your console',
+        sound: 'Sosumi'
     })(error);
     console.log(error.toString());
-    this.emit("end");
+    this.emit('end');
 };
 
 gulp.task('html', function() {
     gulp.src('app/**/!(_)*.jade')
         .pipe(plumber({ errorHandler: reportError }))
         .pipe(jade({ pretty: true }))
-        .pipe(rename( {dirname: "./"} ))
+        .pipe(rename({ dirname: './' }))
         .pipe(gulp.dest('public'))
         .pipe(connect.reload())
         .pipe(browserSync.reload({ stream: true }));
@@ -43,11 +43,11 @@ gulp.task('css', function() {
         .pipe(stylus())
         .pipe(sourcemaps.init())
         .pipe(autoprefixer())
-        .pipe(rename("main.css"))
+        .pipe(rename('main.css'))
         .pipe(gulp.dest('public/assets/css'))
-        .pipe(rename("main.min.css"))
+        .pipe(rename('main.min.css'))
         .pipe(minifyCSS())
-        .pipe(sourcemaps.write("./"))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('public/assets/css'))
         .pipe(connect.reload())
         .pipe(browserSync.reload({ stream: true }));
@@ -59,7 +59,7 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('main.min.js'))
         .pipe(uglify())
-        .pipe(sourcemaps.write("./"))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('public/assets/js'));
 });
 
@@ -89,7 +89,7 @@ gulp.task('connect', function() {
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "public"
+            baseDir: 'public'
         }
     });
 });

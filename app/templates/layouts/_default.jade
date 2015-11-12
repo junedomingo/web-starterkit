@@ -5,7 +5,17 @@ head
     title Web Starterkit
     link(rel="stylesheet", href="assets/css/main.css")
     link(rel="stylesheet", href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+
     block css
+
 body
-    block content
+
+    //- include includes/_header
+
+    div.container
+
+        block content
+    
+        include includes/_footer
+    
     block js

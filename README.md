@@ -8,8 +8,7 @@ Install NodeJS
 
 ```sh
 # Clone this repository
-$ git clone https://github.com/CynderTech/web-starterkit.git new_project
-$ cd new_project
+$ git clone https://github.com/CynderTech/web-starterkit.git && cd web-starterkit
 
 # Install dependencies
 $ npm install

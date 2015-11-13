@@ -117,7 +117,7 @@ gulp.task('clean-build', function() {
 gulp.task('build', ['html', 'css', 'js', 'images', 'copyfonts']);
 
 gulp.task('re-build', function(callback) {
-    runSequence(['clean-build'], 'build');
+    runSequence('clean-build', ['build'], callback);
 });
 
 gulp.task('start', ['build', 'connect', 'watch']);

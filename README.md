@@ -7,6 +7,9 @@ Install NodeJS
 - [NodeJS](http://nodejs.org/)
 
 ```sh
+# Install Gulp
+$ npm install gulp -g
+
 # Clone this repository
 $ git clone https://github.com/CynderTech/web-starterkit.git && cd web-starterkit
 

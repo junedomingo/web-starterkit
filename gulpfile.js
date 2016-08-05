@@ -9,7 +9,7 @@ var gulp         = require('gulp'),
     minifyCSS    = require('gulp-minify-css'),
     notify       = require('gulp-notify'),
     plumber      = require('gulp-plumber'),
-    runSequence  = require('run-sequence'),
+    gulpSequence = require('gulp-sequence'),
     shell        = require('gulp-shell'),
     sourcemaps   = require('gulp-sourcemaps'),
     stylus       = require('gulp-stylus'),
@@ -92,7 +92,7 @@ gulp.task('copyfonts', function() {
 
 gulp.task('browserSyncConfig', function() {
     browserSync.init({
-        port: 6969,
+        port: 8080,
         server: './public',
         notify: false,
         files: [
@@ -106,6 +106,7 @@ gulp.task('watch', function() {
     gulp.watch(sourcePath.stylus + '**/*.styl', ['stylus']);
     gulp.watch(sourcePath.js + '**/*.js', ['js']);
     gulp.watch(sourcePath.img + '**/*.{jpg,png,gif}', ['img']);
+    gulp.watch(sourcePath.fonts + '**/*.{ttf,otf,woff,woff2,eof,svg}', ['copyfonts']);
 });
 
 gulp.task('clean-build', function() {
@@ -116,14 +117,13 @@ gulp.task('clean-build', function() {
         destPath.css + 'main.min.css.map',
         destPath.js + 'main.min.js',
         destPath.js + 'main.min.js.map',
-        destPath.fonts + '*'
+        destPath.fonts + '*',
+        destPath.img + '*'
     ])
 });
 
 gulp.task('build', ['jade', 'stylus', 'js', 'img', 'copyfonts']);
-gulp.task('re-build', function(callback) {
-    runSequence('clean-build', ['build'], callback);
-});
+gulp.task('re-build', gulpSequence(['clean-build','build']));
 
 gulp.task('serve', ['browserSyncConfig', 'build', 'watch']);
 gulp.task('default');

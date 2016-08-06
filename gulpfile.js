@@ -4,7 +4,7 @@ var gulp         = require('gulp'),
     concat       = require('gulp-concat'),
     del          = require('del'),
     imagemin     = require('gulp-imagemin'),
-    jade         = require('gulp-jade'),
+    pug         = require('gulp-pug'),
     rename       = require('gulp-rename'),
     minifyCSS    = require('gulp-minify-css'),
     notify       = require('gulp-notify'),
@@ -16,18 +16,20 @@ var gulp         = require('gulp'),
     uglify       = require('gulp-uglify');
 
 var sourcePath = {
-        jade:   'app/templates/',
+        pug:   'app/templates/',
         stylus: 'app/assets/styl/',
         js:     'app/assets/js/',
         img:    'app/assets/img/',
-        fonts:  'app/assets/fonts/'
+        fonts:  'app/assets/fonts/',
+        lib:  'app/assets/lib/'
     },
     destPath = {
         html:  'public/',
         css:   'public/assets/css/',
         js:    'public/assets/js/',
         img:   'public/assets/img/',
-        fonts: 'public/assets/fonts/'
+        fonts: 'public/assets/fonts/',
+        lib: 'public/assets/lib/'
     };
 
 var reportError = function(error){
@@ -40,10 +42,10 @@ var reportError = function(error){
     this.emit('end');
 };
 
-gulp.task('jade', function() {
-    gulp.src(sourcePath.jade + '**/!(_)*.jade')
+gulp.task('pug', function() {
+    gulp.src(sourcePath.pug + '**/!(_)*.pug')
         .pipe(plumber({ errorHandler: reportError }))
-        .pipe(jade({ pretty: true }))
+        .pipe(pug({ pretty: true }))
         .pipe(rename({ dirname: './' }))
         .pipe(gulp.dest(destPath.html))
         .pipe(browserSync.reload({ stream: true }));
@@ -85,9 +87,14 @@ gulp.task('img', function() {
         .pipe(gulp.dest(destPath.img));
 });
 
-gulp.task('copyfonts', function() {
+gulp.task('copyFonts', function() {
     gulp.src(sourcePath.fonts + '**/*.{ttf,otf,woff,woff2,eof,svg}')
         .pipe(gulp.dest(destPath.fonts));
+});
+
+gulp.task('copyLib', function() {
+    gulp.src(sourcePath.lib + '**/*')
+        .pipe(gulp.dest(destPath.lib));
 });
 
 gulp.task('browserSyncConfig', function() {
@@ -102,11 +109,11 @@ gulp.task('browserSyncConfig', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(sourcePath.jade + '**/*.jade', ['jade']);
+    gulp.watch(sourcePath.pug + '**/*.pug', ['pug']);
     gulp.watch(sourcePath.stylus + '**/*.styl', ['stylus']);
     gulp.watch(sourcePath.js + '**/*.js', ['js']);
     gulp.watch(sourcePath.img + '**/*.{jpg,png,gif}', ['img']);
-    gulp.watch(sourcePath.fonts + '**/*.{ttf,otf,woff,woff2,eof,svg}', ['copyfonts']);
+    gulp.watch(sourcePath.fonts + '**/*.{ttf,otf,woff,woff2,eof,svg}', ['copyFonts']);
 });
 
 gulp.task('clean-build', function() {
@@ -118,11 +125,12 @@ gulp.task('clean-build', function() {
         destPath.js + 'main.min.js',
         destPath.js + 'main.min.js.map',
         destPath.fonts + '*',
-        destPath.img + '*'
+        destPath.img + '*',
+        destPath.lib + '*'
     ])
 });
 
-gulp.task('build', ['jade', 'stylus', 'js', 'img', 'copyfonts']);
+gulp.task('build', ['pug', 'stylus', 'js', 'img', 'copyFonts', 'copyLib']);
 gulp.task('re-build', gulpSequence(['clean-build','build']));
 
 gulp.task('serve', ['browserSyncConfig', 'build', 'watch']);

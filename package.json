@@ -4,23 +4,23 @@
   "description": "A Jade and Stylus starter project using Gulp for task automation.",
   "main": "gulpfile.js",
   "dependencies": {
-    "bower": "^1.7.7",
-    "browser-sync": "^2.11.1",
-    "del": "^2.2.0",
+    "bower": "^1.8.2",
+    "browser-sync": "^2.18.13",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^2.4.0",
-    "gulp-minify-css": "^1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.0.4",
+    "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sequence": "^0.4.5",
+    "gulp-sequence": "^0.4.6",
     "gulp-shell": "^0.5.2",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-stylus": "^2.3.0",
-    "gulp-uglify": "^1.5.3"
+    "gulp-sourcemaps": "^1.12.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^1.5.4"
   },
   "devDependencies": {},
   "scripts": {
@@ -29,16 +29,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CynderTech/web-starterkit.git"
+    "url": "https://github.com/junedomingo/web-starterkit.git"
   },
   "keywords": [
     "jade",
     "stylus",
     "gulp"
   ],
-  "author": "June Domingo <june@cynder.io>",
-  "license": "ISC",
+  "author": "June Domingo <junedomingo@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CynderTech/web-starterkit/issues"
+    "url": "https://github.com/junedomingo/web-starterkit/issues"
   }
 }

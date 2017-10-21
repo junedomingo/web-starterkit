@@ -2,7 +2,7 @@
   "name": "web-starterkit",
   "version": "1.0.0",
   "authors": [
-    "June Domingo <june@cynder.io>"
+    "June Domingo <junedomingo@gmail.com>"
   ],
   "description": "A Jade and Stylus starter project using Gulp for task automation.",
   "main": "gulpfile.js",

@@ -11,7 +11,7 @@ Install NodeJS
 $ npm install gulp -g
 
 # Clone this repository
-$ git clone git@github.com:CynderTech/web-starterkit.git && cd web-starterkit
+$ git clone git@github.com:junedomingo/web-starterkit.git && cd web-starterkit
 
 # Install dependencies
 $ npm install
